@@ -21,7 +21,7 @@ const Contact = () => {
       )
       .then(
         () => {
-          alert("Message sent successfully.");
+          alert("✅ Message sent successfully.");
           formRef.current?.reset();
         },
         (error) => {

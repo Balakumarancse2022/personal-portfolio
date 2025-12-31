@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
-import { Button } from "./ui/button";
 
 const navLinks = [
   { name: "Skills", href: "#skills" },
@@ -30,15 +29,17 @@ const Navbar = () => {
           : "bg-transparent"
       }`}
     >
-      <div className="container px-6">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="flex items-center justify-between h-16 md:h-20">
 
-         {/* LOGO */}
- {/* LOGO */}
-          <a href="#" className="font-heading font-bold text-2xl md:text-3xl">
-            <span className="gradient-text"></span>
+          {/* LOGO */}
+          <a
+            href="#"
+            className="font-heading font-bold text-xl sm:text-2xl md:text-3xl 
+                       max-w-[70%] truncate gradient-text"
+          >
+            Bala Kumaran
           </a>
-
 
           {/* DESKTOP NAV */}
           <div className="hidden md:flex items-center gap-10">
@@ -46,7 +47,7 @@ const Navbar = () => {
               <a
                 key={link.name}
                 href={link.href}
-                className="text-lg font-semibold text-muted-foreground hover:text-foreground transition-colors duration-200"
+                className="text-lg font-semibold text-muted-foreground hover:text-foreground transition-colors"
               >
                 {link.name}
               </a>
@@ -55,8 +56,9 @@ const Navbar = () => {
 
           {/* MOBILE MENU BUTTON */}
           <button
-            className="md:hidden p-2 rounded-lg hover:bg-secondary transition-colors"
+            className="md:hidden flex-shrink-0 p-2 rounded-lg hover:bg-secondary transition-colors"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label="Toggle menu"
           >
             {isMobileMenuOpen ? (
               <X className="w-7 h-7" />
@@ -68,13 +70,13 @@ const Navbar = () => {
 
         {/* MOBILE MENU */}
         {isMobileMenuOpen && (
-          <div className="md:hidden py-6 border-t border-border">
-            <div className="flex flex-col gap-6">
+          <div className="md:hidden absolute top-full left-0 w-full bg-background/95 backdrop-blur-lg border-t border-border">
+            <div className="flex flex-col gap-6 py-6 px-6">
               {navLinks.map((link) => (
                 <a
                   key={link.name}
                   href={link.href}
-                  className="text-lg font-semibold text-muted-foreground hover:text-foreground transition-colors px-2"
+                  className="text-lg font-semibold text-muted-foreground hover:text-foreground transition-colors"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {link.name}

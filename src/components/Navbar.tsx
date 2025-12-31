@@ -38,7 +38,7 @@ const Navbar = () => {
             className="font-heading font-bold text-xl sm:text-2xl md:text-3xl 
                        max-w-[70%] truncate gradient-text"
           >
-            Bala Kumaran
+           
           </a>
 
           {/* DESKTOP NAV */}
